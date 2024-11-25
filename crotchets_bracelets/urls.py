@@ -26,5 +26,7 @@ urlpatterns = [
     path('thank_you', views.thank_you, name='thank_you'),
     path('cart', views.cart, name='cart'),
     path('login', views.login, name='login'),
+    path('signup', views.signup, name='signup'),
+    path('log_out', views.log_out, name='logout'),
     path('admin/', admin.site.urls),
 ]

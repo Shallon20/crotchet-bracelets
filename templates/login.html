@@ -6,5 +6,15 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Login</h1>
+    <div class="container py-5">
+        <h1 class="text-center mt-4">Login</h1>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="d-flex justify-content-center py-4">
+                {% include 'button.html' with url='cart' label='Login' btn_class='btn-primary' %}
+            </div>
+        </form>
+        <p class="text-center mt-3">Don't have an account? <a href{% url 'signup' %}>Sign Up Here</a></p>
+    </div>
 {% endblock %}
