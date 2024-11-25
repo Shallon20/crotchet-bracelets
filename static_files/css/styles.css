@@ -6,13 +6,25 @@
 .navbar{
     top: 0;
     position: fixed;
-    background-color: #f9ece6;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .navbar a, .navbar ul li a{
-    color: #000;
+    color: #fff;
+}
+.navbar a:hover{
+    border-radius: .3rem;
+    background-color: rgba(81, 80, 80, 0.4);
+    color: rgba(239, 237, 237, 0.6);
 }
 h1{
     text-align: center;
 }
 
+.btn{
+    background-color: #bd4566;
+    color: #fff;
+}
+img{
+    width: 100%;
+}

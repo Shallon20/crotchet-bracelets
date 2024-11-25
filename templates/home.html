@@ -8,40 +8,61 @@
 
 {% block content %}
 
-    <div class="container-fluid p-4 mt-5" style="background-color: #eae7e7">
+    <div class="container-fluid p-4 mt-5" style="background-color: #eae7e7;">
         <div class="row">
             <div class="col-sm-6 justify-content-center">
                 <h1>Welcome To Our Shop</h1>
                 <p>Discover the perfect blend of creativity and craftsmanship!</p>
-                <p>At our shop, we take pride in offering <b>beautifully handcrafted crochet items and one-of-a-kind handmade jewelry</b> that are as unique as you are. 
-                    Each piece is thoughtfully designed and lovingly made, blending timeless techniques with modern aesthetics.</p>
-                <p>Whether you're looking for a cozy crochet piece to add warmth and charm to your body and home or a stunning piece of jewelry to elevate your style, you'll find something special here.</p>
-                <p>Explore our collection and let the artistry speak for itself. Every item has a story, and we're excited to make it part of yours.</p>
-                {% include 'button.html' with url='/contact_us/' label='Contact Us' btn_class='btn-primary' %}
+                <p>At our shop, we take pride in offering <b>beautifully handcrafted crochet items and one-of-a-kind
+                    handmade jewelry</b> that are as unique as you are.
+                    Each piece is thoughtfully designed and lovingly made, blending timeless techniques with modern
+                    aesthetics.</p>
+                <p>Whether you're looking for a cozy crochet piece to add warmth and charm to your body and home or a
+                    stunning piece of jewelry to elevate your style, you'll find something special here.</p>
+                <p>Explore our collection and let the artistry speak for itself. Every item has a story, and we're
+                    excited to make it part of yours.</p>
+                {% include 'button.html' with url='contact_us' label='Contact Us' btn_class='btn-primary' %}
             </div>
             <div class="col-sm-6">
                 <img src="{% static 'images/shopping-img5.jpg' %}" alt="shopping image" style="width: 85%;">
             </div>
         </div>
     </div>
-    <h2 style="text-align: center; margin-top: 2rem; ">LATEST PRODUCTS</h2>
-    <div class="container-fluid">
+
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Latest Products</h2>
         <div class="row">
-            <div class="col-sm-4">
-                {% include 'product.html' %}
-            </div>
+            {% for product in latest_products %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="position-relative">
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            {% if product.is_new %}
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">New</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">KSHS {{ product.price }}</p>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center py-4">
+            {% include 'button.html' with url='product_list' label='View All Products' btn_class='btn-primary' %}
         </div>
     </div>
-    <div class="d-flex justify-content-center py-4">
-        {% include 'button.html' with url='/products/' label='View All Products' btn_class='btn-primary' %}
-    </div>
+
     <h3 style="text-align: center">Why Shop With Us</h3>
     <div class="container-fluid py-4">
         <div class="row justify-content-between">
             <div class="col-sm-4 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
-                        <i class="fas fa-truck fs-1 text-primary"></i> <!-- Lorry Icon -->
+                        <img src="{% static 'images/delivery.png' %}" alt="delivery" class="icons">
                         <h4 class="my-3">Fast Delivery</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet corporis dolorem et mollitia
                             nam nulla, placeat quae voluptate?</p>
@@ -51,7 +72,7 @@
             <div class="col-sm-4 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
-                        <i class="fas fa-headset fs-1 text-success"></i> <!-- Service Icon -->
+                        <img src="{% static 'images/service.png' %}" alt="service" class="icons">
                         <h4 class="my-3">Best Service</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet corporis dolorem et mollitia
                             nam nulla, placeat quae voluptate?</p>
@@ -61,7 +82,7 @@
             <div class="col-sm-4 mb-3">
                 <div class="card shadow-sm">
                     <div class="card-body text-center">
-                        <i class="fas fa-award fs-1 text-warning"></i> <!-- Certificate Icon -->
+                        <img src="{% static 'images/quality.png' %}" alt="quality" class="icons">
                         <h4 class="my-3">Best Quality</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet corporis dolorem et mollitia
                             nam nulla, placeat quae voluptate?</p>

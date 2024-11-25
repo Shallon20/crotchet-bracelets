@@ -15,6 +15,6 @@
                 {% include 'button.html' with url='cart' label='Login' btn_class='btn-primary' %}
             </div>
         </form>
-        <p class="text-center mt-3">Don't have an account? <a href{% url 'signup' %}>Sign Up Here</a></p>
+        <p class="text-center mt-3">Don't have an account? <a href="{% url 'signup' %}">Sign Up Here</a></p>
     </div>
 {% endblock %}

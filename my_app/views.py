@@ -5,15 +5,18 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 from my_app.forms import ContactForm, LoginForm, SignupForm
+from my_app.models import Product
 
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    latest_products = Product.objects.order_by('-created_at')[:6]  # [:6] limits the query to fetch only the top 6 products
+    return render(request, 'home.html', {'latest_products': latest_products})
 
 
-def products(request):
-    return render(request, 'products.html')
+def product_list(request):
+    products = Product.objects.all()
+    return render(request, 'products.html', {"products": products})
 
 
 def contact_us(request):

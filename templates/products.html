@@ -6,5 +6,30 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Products</h1>
+    <div class="container" style="margin-top: 7rem;">
+        <h1>Our Products</h1>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="position-relative">
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            {% if product.is_new %}
+                                <span class="badge bg-success position-absolute top-0 start-0 m-2">New</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">{{ product.description }}</p>
+                            <p class="card-text">KSHS {{ product.price }}</p>
+                            <div class="d-flex justify-content-center py-4">
+                                {% include 'button.html' with url='#' label='Add to Cart' btn_class='btn-primary' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

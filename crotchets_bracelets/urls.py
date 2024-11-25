@@ -21,7 +21,7 @@ from my_app import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('products', views.products, name='products'),
+    path('product_list', views.product_list, name='products'),
     path('contact_us', views.contact_us, name='contact_us'),
     path('thank_you', views.thank_you, name='thank_you'),
     path('cart', views.cart, name='cart'),
