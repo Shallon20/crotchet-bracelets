@@ -1,5 +1,8 @@
 {% extends 'master.html' %}
 {% load static %}
+{% load static %}
+<script src="{% static 'js/cart.js' %}"></script>
+
 
 {% block title %}
     <title>Cart</title>
@@ -8,14 +11,48 @@
 {% block content %}
     <div class="container py-5 mt-3">
         <h1 class="text-center">Your Cart</h1>
-        <ul class="list-group mt-4">
-            {% for item in cart_items %}
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ item.image }}
-                {{ item.name }}
-                <span>Kshs{{ item.price }}</span>
-            </li>
-            {% endfor %}
-        </ul>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Image</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in cart_items %}
+                        <tr>
+                            <td>{{ item.product.name }}</td>
+                            <td>
+                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
+                                     class="img-thumbnail" style="width: 100px; height: auto;">
+                            </td>
+                            <td>{{ item.quantity }}</td>
+                            <td>KSHS {{ item.product.price }}</td>
+                            <td>KSHS {{ item.total_price }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-success"
+                                        onclick="updateCart('{{ item.id }}', 'increase')">+
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="updateCart('{{ item.id }}', 'decrease')">
+                                    -
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                <div class="text-end mt-4">
+                    <h4>Total: KSHS {{ total_price }}</h4>
+                    <a href="#" class="btn btn-success">Checkout</a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

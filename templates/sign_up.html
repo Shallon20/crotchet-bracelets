@@ -12,9 +12,9 @@
             {% csrf_token %}
             {{ form.as_p }}
             <div class="d-flex justify-content-center py-4">
-                {% include 'button.html' with url='cart' label='Sign Up' btn_class='btn-primary' %}
+                {% include 'button.html' with url='login_user' label='Sign Up' btn_class='btn-primary' %}
             </div>
         </form>
-        <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}">Login Here</a></p>
+        <p class="text-center mt-3">Already have an account? <a href="{% url 'login_user' %}">Login Here</a></p>
     </div>
 {% endblock %}

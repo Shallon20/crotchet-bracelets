@@ -10,8 +10,8 @@
         <h1>Our Products</h1>
         <div class="row">
             {% for product in products %}
-                <div class="col-md-4">
-                    <div class="card">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
                         <div class="position-relative">
                             <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
                             {% if product.is_new %}
@@ -23,9 +23,7 @@
                             <h5 class="card-title">{{ product.name }}</h5>
                             <p class="card-text">{{ product.description }}</p>
                             <p class="card-text">KSHS {{ product.price }}</p>
-                            <div class="d-flex justify-content-center py-4">
-                                {% include 'button.html' with url='#' label='Add to Cart' btn_class='btn-primary' %}
-                            </div>
+                            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
                         </div>
                     </div>
                 </div>

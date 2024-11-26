@@ -51,3 +51,7 @@ admin.site.register(Customer, CustomerAdmin)
 
 #shallon
 #Sha@2001
+
+#maria
+#maria01@gmail.com
+#Maria@2001
