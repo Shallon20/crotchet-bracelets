@@ -20,7 +20,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="mynavbar">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav me-auto" style="display: flex; gap: 5rem; margin-left: 2rem">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
@@ -33,11 +33,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'cart' %}">Cart</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
                 </ul>
-                <form class="d-flex">
+                <form class="d-flex gap-5">
+                    <div>
+                        <a class="nav-link" href="{% url 'login' %}"><img src="{% static 'images/profile.png' %}" alt="login-pic"></a>
+                    </div>
+                    <div>
+                        <a class="nav-link" href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}" alt="cart-pic"></a>
+                    </div>
                     <input class="form-control me-2" type="text" placeholder="Search">
                     <button class="btn btn-primary" type="button">Search</button>
                 </form>

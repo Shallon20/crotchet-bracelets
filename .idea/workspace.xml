@@ -5,30 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4730b0db-3cdc-4c80-9a8f-71861f5b114a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/linkedin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/quality.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/service.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/twitter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_app/static/images/cart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_app/static/images/profile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_app/static/images/whatsapp.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crotchets_bracelets/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crotchets_bracelets/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static_files/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static_files/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact_us.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign_up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +134,7 @@
       <updated>1732467902938</updated>
       <workItem from="1732467904387" duration="2582000" />
       <workItem from="1732470507188" duration="159000" />
-      <workItem from="1732471455322" duration="37807000" />
+      <workItem from="1732471455322" duration="41904000" />
     </task>
     <servers />
   </component>
