@@ -59,6 +59,12 @@ def add_to_cart(request, product_id):
     messages.success(request, "Product added to cart!")
     return redirect('cart')
 
+def place_order(request):
+    cart_items = CartItem.objects.filter(user=request.user)
+    if not cart_items:
+        messages.error(request, "No cart items found!")
+        return redirect('cart')
+
 @login_required()
 def update_cart_quantity(request, cart_item_id, action):
     cart_item = get_object_or_404(CartItem, id=cart_item_id, user=request.user)

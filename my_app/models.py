@@ -24,6 +24,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
     class Meta:
+        ordering = ['category']
         db_table = 'product'
 
 
@@ -55,6 +56,8 @@ class CartItem(models.Model):
 
 class Customer(models.Model):
     user = models.OneToOneField(User, related_name='customer', on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     phone_number = models.CharField(max_length=20)
     address = models.TextField()
 
