@@ -2,6 +2,29 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
+from my_app.models import Product
+
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = [
+            'name',
+            'description',
+            'price',
+            'image',
+            'category',
+            'is_new'
+        ]
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter product name'}),
+            'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter product description'}),
+            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter product price'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'is_new': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+        }
+
 
 class ContactForm(forms.Form):
     name = forms.CharField(
@@ -24,6 +47,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}),
     )
+
 
 class SignupForm(UserCreationForm):
     email = forms.EmailField(

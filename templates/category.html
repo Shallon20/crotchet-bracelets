@@ -1,0 +1,19 @@
+{#{% extends 'master.html' %}#}
+{#{% load static %}#}
+{##}
+{#{% block title %}#}
+{#    <title>Product Detail</title>#}
+{#{% endblock %}#}
+{#{% block extra_css %}#}
+{#    <link rel="stylesheet" href="{% static 'css/category.css' %}">#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="categories">#}
+{#        <a href="{% url 'product_list' %}">All</a>#}
+{#        {% for category in categories %}#}
+{#            <a href="{% url 'product_list' %}?category={{ category.name }}">{{ category.name }}</a>#}
+{#        {% endfor %}#}
+{#    </div>#}
+{##}
+{#{% endblock %}#}

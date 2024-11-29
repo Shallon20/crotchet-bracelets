@@ -28,6 +28,26 @@ h1{
     color: #fff;
 }
 
+.btn {
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: #e91e63;
+}
+tr:hover {
+    background-color: #f8f9fa;
+}
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.table-responsive {
+    overflow-x: auto;
+    margin: 0 -15px;
+}
+
+
 .btn:hover{
     background-color: rgba(189, 69, 102, 0.6 );
     color: rgba(255, 255, 255, 0.6);

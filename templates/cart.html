@@ -1,58 +1,70 @@
-{% extends 'master.html' %}
-{% load static %}
-{% load static %}
-<script src="{% static 'js/cart.js' %}"></script>
-
-
-{% block title %}
-    <title>Cart</title>
-{% endblock %}
-
-{% block content %}
-    <div class="container py-5 mt-3">
-        <h1 class="text-center">Your Cart</h1>
-        <div class="row">
-            <div class="col-12">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Image</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for item in cart_items %}
-                        <tr>
-                            <td>{{ item.product.name }}</td>
-                            <td>
-                                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}"
-                                     class="img-thumbnail" style="width: 100px; height: auto;">
-                            </td>
-                            <td>{{ item.quantity }}</td>
-                            <td>KSHS {{ item.product.price }}</td>
-                            <td>KSHS {{ item.total_price }}</td>
-                            <td>
-                                <button class="btn btn-sm btn-success"
-                                        onclick="updateCart('{{ item.id }}', 'increase')">+
-                                </button>
-                                <button class="btn btn-sm btn-danger" onclick="updateCart('{{ item.id }}', 'decrease')">
-                                    -
-                                </button>
-                            </td>
-                        </tr>
-                    {% endfor %}
-
-                    </tbody>
-                </table>
-                <div class="text-end mt-4">
-                    <h4>Total: KSHS {{ total_price }}</h4>
-                    <a href="#" class="btn btn-success">Checkout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+{#{% extends 'master.html' %}#}
+{#{% load static %}#}
+{#{% load static %}#}
+{##}
+{#{% block title %}#}
+{#    <title>Cart</title>#}
+{#{% endblock %}#}
+{#{% block extra_css %}#}
+{#    <link rel="stylesheet" href="{% static 'css/cart.css' %}">#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <div class="container py-5 mt-3">#}
+{#        <h1 class="text-center">Your Shopping Cart</h1>#}
+{#        <div class="table-responsive">#}
+{#            <table class="table table-striped text-center align-middle">#}
+{#                <thead class="table-dark">#}
+{#                <tr>#}
+{#                    <th>Product</th>#}
+{#                    <th>Image</th>#}
+{#                    <th>Quantity</th>#}
+{#                    <th>Price</th>#}
+{#                    <th>Total</th>#}
+{#                    <th>Remove</th>#}
+{#                </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                {% for item in cart_items %}#}
+{#                    <tr id="cart-item-{{ item.id }}">#}
+{#                        <td>#}
+{#                            <h6>{{ item.product.name }}</h6>#}
+{#                        </td>#}
+{#                        <td>#}
+{#                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-thumbnail"#}
+{#                                 style="width: 80px;">#}
+{#                        </td>#}
+{#                        <td class="quantity-controls">#}
+{#                            <button class="btn btn-outline-secondary btn-sm"#}
+{#                                    onclick="updateCart('{{ item.id }}', 'decrease')">#}
+{#                                <i class="fas fa-minus"></i>#}
+{#                            </button>#}
+{#                            <span id="quantity-{{ item.id }}">{{ item.quantity }}</span>#}
+{#                            <button class="btn btn-outline-secondary btn-sm"#}
+{#                                    onclick="updateCart('{{ item.id }}', 'increase')">#}
+{#                                <i class="fas fa-plus"></i>#}
+{#                            </button>#}
+{#                        </td>#}
+{#                        <td>KSHS {{ item.product.price }}</td>#}
+{#                        <td class="total-price" id="total-price-{{ item.id }}">KSHS {{ item.total_price }}</td>#}
+{#                        <td>#}
+{#                            <button class="btn btn-outline-danger btn-sm" onclick="removeItem('{{ item.id }}')">#}
+{#                                <i class="fas fa-trash"></i>#}
+{#                            </button>#}
+{#                        </td>#}
+{#                    </tr>#}
+{##}
+{#                {% endfor %}#}
+{#                </tbody>#}
+{#            </table>#}
+{#        </div>#}
+{#        <div class="text-end mt-4">#}
+{#            <h4>Total: KSHS {{ total_price }}</h4>#}
+{#            <a href="#" class="btn btn-success btn-lg">Proceed to Checkout</a>#}
+{#        </div>#}
+{#    </div>#}
+{##}
+{#{% endblock %}#}
+{#{% block extra_js %}#}
+{#    <script src="{% static 'js/cart.js' %}"></script>#}
+{#{% endblock %}#}

@@ -1,0 +1,38 @@
+{#{% extends 'master.html' %}#}
+{#{% load static %}#}
+{##}
+{#{% block title %}#}
+{#    <title>Search Results</title>#}
+{#{% endblock %}#}
+{##}
+{#{% block extra_css %}#}
+{#    #}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    {% if searched %}#}
+{#        <div class="container mt-5 h-100">#}
+{#            <h2>Products</h2>#}
+{#            <table class="table table-striped">#}
+{#                <tr>#}
+{#                    <th>Name</th>#}
+{#                    <th>Image</th>#}
+{#                    <th>Description</th>#}
+{#                    <th>Price</th>#}
+{#                </tr>#}
+{#                {% for product in products %}#}
+{#                    <tr>#}
+{#                        <td>{{ product.name }}</td>#}
+{#                        <td><img src="{{ product.image.url }}" class="card-img-top" style="width: 25%" alt="{{ product.name }}"></td>#}
+{#                        <td>{{ product.description }}</td>#}
+{#                        <td>{{ product.price }}</td>#}
+{#                    </tr>#}
+{##}
+{#                {% endfor %}#}
+{#                {% else %}#}
+{#                <p>No products found</p>#}
+{#            </table>#}
+{#        </div>#}
+{#    {% endif %}#}
+{#{% endblock %}#}
+{##}
