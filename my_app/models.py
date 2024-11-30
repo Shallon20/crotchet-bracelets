@@ -12,6 +12,7 @@ class Category(models.Model):
         return self.name
     class Meta:
         db_table = 'category'
+        verbose_name_plural = 'Categories'
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -21,13 +22,14 @@ class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    is_new = models.BooleanField(default=False)
-
+    is_sale = models.BooleanField(default=False)
+    sale_price = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     def __str__(self):
         return self.name
     class Meta:
         ordering = ['category']
         db_table = 'product'
+        verbose_name_plural = 'Products'
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=30)
@@ -38,10 +40,12 @@ class Customer(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+    class Meta:
+        db_table = 'customer'
+        verbose_name_plural = 'Customers'
 
-    db_table = 'customer'
 
-class Order(models.Model):
+class CustomerOrder(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
@@ -53,4 +57,6 @@ class Order(models.Model):
     def __str__(self):
         return self.product
 
-
+    class Meta:
+        db_table = 'CustomerOrder'
+        verbose_name_plural = 'CustomerOrders'

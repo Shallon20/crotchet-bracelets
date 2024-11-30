@@ -5,38 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4730b0db-3cdc-4c80-9a8f-71861f5b114a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/css/cart.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/css/category.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/css/product_detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/css/products.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/category.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product_add_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product_update_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/crotchets_bracelets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crotchets_bracelets.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_app/static/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_app/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_app/static/js/scripts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/homee.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crotchets_bracelets/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crotchets_bracelets/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/static/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/static/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/css/cart.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/css/category.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/css/product_detail.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/css/products.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/cart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/delivery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/facebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/instagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/linkedin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/profile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/quality.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/service.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/shopping-img1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/shopping-img2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/shopping-img3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/shopping-img4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/shopping-img5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/images/whatsapp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_app/static/js/cart.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static_files/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static_files/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/button.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/button.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact_us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign_up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/thank_you.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/thank_you.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +98,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.crotchets_bracelets.executor": "Run",
     "JavaScript Debug.home.html.executor": "Run",
+    "JavaScript Debug.homee.html.executor": "Run",
     "JavaScript Debug.master.html.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -103,7 +106,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/admins/PycharmProjects/crotchets_bracelets/my_app/static/images",
+    "last_opened_file_path": "/home/admins/PycharmProjects/crotchets_bracelets/my_app/static",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -115,12 +118,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/my_app/static/images" />
+      <recent name="$PROJECT_DIR$/my_app/static" />
       <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/my_app/static/images" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.home.html">
+  <component name="RunManager" selected="JavaScript Debug.homee.html">
     <configuration name="home.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/crotchets_bracelets/templates/home.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="homee.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/crotchets_bracelets/templates/homee.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="master.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/crotchets_bracelets/templates/master.html" useBuiltInWebServerPort="true">
@@ -154,6 +161,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.homee.html" />
         <item itemvalue="JavaScript Debug.home.html" />
         <item itemvalue="JavaScript Debug.master.html" />
       </list>
@@ -180,6 +188,7 @@
       <workItem from="1732471455322" duration="52165000" />
       <workItem from="1732621830510" duration="1868000" />
       <workItem from="1732728375819" duration="15683000" />
+      <workItem from="1732994708025" duration="3398000" />
     </task>
     <servers />
   </component>

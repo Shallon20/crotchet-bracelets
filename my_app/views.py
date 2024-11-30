@@ -8,13 +8,14 @@ from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
 from my_app.forms import ContactForm, LoginForm, SignupForm, ProductForm
-from my_app.models import Product, Category, Order
+from my_app.models import Product, Category, CustomerOrder
 
 
 # Create your views here.
 def home(request):
-    latest_products = Product.objects.order_by('-created_at')[:6]  # [:6] limits the query to fetch only the top 6 products
-    return render(request, 'home.html', {'latest_products': latest_products})
+    products = Product.objects.all()
+    # latest_products = Product.objects.order_by('-created_at')[:6]  # [:6] limits the query to fetch only the top 6 products
+    return render(request, 'homee.html', {"products": products})
 
 #
 # def product_list(request):

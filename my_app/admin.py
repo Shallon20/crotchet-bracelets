@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from my_app.models import Category, Product, Order, Customer
+from my_app.models import Category, Product, CustomerOrder, Customer
 
 # Register your models here.
 admin.site.site_header = 'E&S Crotchet & Jewellery Administration'
@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
     list_per_page = 25
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'image', 'price', 'is_new', 'category', 'description']
+    list_display = ['name', 'image', 'price', 'is_sale', 'category', 'description']
     search_fields = ['name']
     list_filter = ['category', 'price']
     list_per_page = 25
@@ -36,7 +36,7 @@ class CustomerAdmin(admin.ModelAdmin):
     list_filter = ['first_name', 'last_name', 'email']
     list_per_page = 25
 
-class OrderAdmin(admin.ModelAdmin):
+class CustomerOrderAdmin(admin.ModelAdmin):
     list_display = ['product', 'quantity', 'status']
     search_fields = ['status', 'product']
     list_filter = ['status']
@@ -44,7 +44,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Order, OrderAdmin)
+admin.site.register(CustomerOrder, CustomerOrderAdmin)
 admin.site.register(Customer, CustomerAdmin)
 
 # python3 manage.py createsuperuser
