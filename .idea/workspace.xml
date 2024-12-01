@@ -5,45 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4730b0db-3cdc-4c80-9a8f-71861f5b114a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/cart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/delivery.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/facebook.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/instagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/linkedin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/profile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/quality.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/service.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/shopping-img5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/twitter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/my_app/static/images/whatsapp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/crotchets_bracelets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crotchets_bracelets.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/templates/cart_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/my_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crotchets_bracelets/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crotchets_bracelets/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crotchets_bracelets/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crotchets_bracelets/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/static/assets/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/static/images/favicon.ico" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/button.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/button.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/category.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/category.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact_us.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/contact_us.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/homee.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product_add_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_add_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product_update_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_update_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign_up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/thank_you.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/thank_you.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -200,7 +173,7 @@
       <workItem from="1732621830510" duration="1868000" />
       <workItem from="1732728375819" duration="15683000" />
       <workItem from="1732994708025" duration="11059000" />
-      <workItem from="1733054042699" duration="10043000" />
+      <workItem from="1733054042699" duration="18725000" />
     </task>
     <servers />
   </component>

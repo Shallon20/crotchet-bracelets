@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="{% url 'home' %}">E & S</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -34,32 +34,31 @@
                 <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Signup</a></li>
                 {% endif %}
                 <li class="nav-item"><a class="nav-link" href="{% url 'products' %}">Products</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                       data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="{% url 'products' %}">All Products</a></li>
                         <li>
                             <hr class="dropdown-divider"/>
                         </li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'Crotchet' %}">Crotchet</a></li>
+                        <li><a class="dropdown-item" href="{% url 'category' 'Jewellery'%}">Jewellery</a></li>
                     </ul>
                 </li>
+     
             </ul>
             <form class="d-flex gap-5">
                 <div class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search Products" name="searched">
                     <button class="btn btn-outline-secondary" type="submit">Search</button>
                 </div>
-                <button class="btn btn-outline-dark" type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Cart
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
+                <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark d-flex gap-2" ><i class="bi-cart-fill me-1"></i>Cart <span class="badge bg-dark text-white ms-1 rounded-pill">0</span></a>
+                
             </form>
         </div>
     </div>

@@ -1,5 +1,3 @@
-from unicodedata import category
-
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required, permission_required
@@ -143,15 +141,24 @@ def login_user(request):
         return render(request, 'login.html', {})
 
 def signup_user(request):
+    form = SignupForm()
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            # login user
+            user = authenticate(username=username, password=password)
+            login(request, user)
+
             messages.success(request, 'Account created successfully. Please log in.')
             return redirect('login_user')
+        else:
+            messages.error(request, 'Whoops! There was an error, Please try again.')
+            return redirect('signup_user')
     else:
-        form = SignupForm()
-    return render(request, 'sign_up.html', {'form': form})
+        return render(request, 'sign_up.html', {'form': form})
 def logout_user(request):
     logout(request)
     messages.success(request, 'You have been logged out.')
@@ -203,5 +210,17 @@ def search_product(request):
     else:
         return render(request, "search.html", {})
 
+def category(request, foo):
+    # Replaces hyphens with spaces
+    foo = foo.replace('-', '')
+    # Grab category from url
+    try:
+        # look up the category
+        category = Category.objects.get(name=foo)
+        products = Product.objects.filter(category=category)
+        return render(request, "category.html", {'category': category, 'products': products})
+    except:
+        messages.error(request, 'Please enter a valid category.')
+        return redirect('home')
 
 
