@@ -1,56 +1,57 @@
-{#{% load static %}#}
-{#<footer class="bg-dark text-white text-center text-lg-start p-3">#}
-{#    <div class="container-fluid p-4">#}
-{#        <!-- Social media links -->#}
-{#        <div class="mb-4 d-flex justify-content-center">#}
-{#            <a href="#" class="text-white me-4">#}
-{#                <img src="{% static 'images/facebook.png' %}" alt="facebook" class="social_media_icons">#}
-{#            </a>#}
-{#            <a href="#" class="text-white me-4">#}
-{#                <img src="{% static 'images/twitter.png' %}" alt="twitter" class="social_media_icons">#}
-{#            </a>#}
-{#            <a href="#" class="text-white me-4">#}
-{#                <img src="{% static 'images/instagram.png' %}" alt="instagram" class="social_media_icons">#}
-{#            </a>#}
-{#            <a href="#" class="text-white me-4">#}
-{#                <img src="{% static 'images/linkedin.png' %}" alt="linkedin" class="social_media_icons">#}
-{#            </a>#}
-{#            <a href="#" class="text-white me-4">#}
-{#                <img src="{% static 'images/whatsapp.png' %}" alt="whatsapp" class="social_media_icons">#}
-{#            </a>#}
-{#        </div>#}
-{##}
-{#        <!-- Footer Links -->#}
-{#        <div class="row">#}
-{#            <div class="col-lg-4 col-md-6 mb-4">#}
-{#                <h5>About Us</h5>#}
-{#                <p>#}
-{#                    E & S is your one-stop shop for handmade crocheted accessories and custom-designed bracelets. We#}
-{#                    bring you the joy of art!#}
-{#                </p>#}
-{#            </div>#}
-{##}
-{#            <div class="col-lg-4 col-md-6 mb-4">#}
-{#                <h5>Quick Links</h5>#}
-{#                <ul class="list-unstyled">#}
-{#                    <li><a href="{% url 'home' %}" class="text-white">Home</a></li>#}
-{#                    <li><a href="{% url 'products' %}" class="text-white">Products</a></li>#}
-{#                    <li><a href="{% url 'contact_us' %}" class="text-white">Contact Us</a></li>#}
-{#                    <li><a href="{% url 'cart' %}" class="text-white">Cart</a></li>#}
-{#                </ul>#}
-{#            </div>#}
-{##}
-{#            <div class="col-lg-4 col-md-12 mb-4">#}
-{#                <h5>Contact</h5>#}
-{#                <p><i class="fas fa-envelope"></i> contact@crochetbracelets.com</p>#}
-{#                <p><i class="fas fa-phone"></i> +254769302489</p>#}
-{#                <p><i class="fas fa-map-marker-alt"></i> Machakos, Kenya</p>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#    <!-- Copyright -->#}
-{#    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">#}
-{#        © 2024 E & S#}
-{#    </div>#}
-{#</footer>#}
+{% load static %}
+<footer class="bg-dark text-white text-center text-lg-start p-3">
+    <div class="container-fluid p-4">
+        <!-- Social media links -->
+        <div class="mb-4 d-flex justify-content-center">
+            <a href="#" class="text-white me-4">
+                <img src="{% static 'images/facebook.png' %}" alt="facebook" class="social_media_icons">
+            </a>
+            <a href="#" class="text-white me-4">
+                <img src="{% static 'images/twitter.png' %}" alt="twitter" class="social_media_icons">
+            </a>
+            <a href="#" class="text-white me-4">
+                <img src="{% static 'images/instagram.png' %}" alt="instagram" class="social_media_icons">
+            </a>
+            <a href="#" class="text-white me-4">
+                <img src="{% static 'images/linkedin.png' %}" alt="linkedin" class="social_media_icons">
+            </a>
+            <a href="#" class="text-white me-4">
+                <img src="{% static 'images/whatsapp.png' %}" alt="whatsapp" class="social_media_icons">
+            </a>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>About Us</h5>
+                <p>
+                    E & S is your one-stop shop for handmade crocheted accessories and custom-designed bracelets. We
+                    bring you the joy of art!
+                </p>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'home' %}" class="text-white">Home</a></li>
+                    <li><a href="{% url 'about' %}" class="text-white">About Us</a></li>
+                    <li><a href="{% url 'products' %}" class="text-white">Products</a></li>
+                    <li><a href="{% url 'contact_us' %}" class="text-white">Contact Us</a></li>
+                    <li><a href="{% url 'cart' %}" class="text-white">Cart</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-12 mb-4">
+                <h5>Contact</h5>
+                <p><i class="fas fa-envelope"></i> contact@crochetbracelets.com</p>
+                <p><i class="fas fa-phone"></i> +254769302489</p>
+                <p><i class="fas fa-map-marker-alt"></i> Machakos, Kenya</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 E & S
+    </div>
+</footer>

@@ -1,25 +1,25 @@
-{#{% extends 'master.html' %}#}
-{#{% load static %}#}
-{##}
-{#{% block title %}#}
-{#    <title>Contact Us</title>#}
-{#{% endblock %}#}
-{##}
-{#{% block content %}#}
-{#    <div class="container py-5 mt-4">#}
-{#        <h1 class="text-center mb-4">Contact Us</h1>#}
-{#        <p class="text-center mb-4">We’d love to hear from you! Fill out the form below to get in touch.</p>#}
-{#        <div class="row justify-content-center">#}
-{#            <div class="col-md-6">#}
-{#                <form method="post">#}
-{#                    {% csrf_token %}#}
-{#                    {{ form.as_p }}#}
-{#                    <div class="d-grid">#}
-{#                        <button type="submit" class="btn btn-primary">Send Message</button>#}
-{#                    </div>#}
-{#                </form>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{##}
-{#{% endblock %}#}
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Contact Us</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container py-5 mt-4">
+        <h1 class="text-center mb-4">Contact Us</h1>
+        <p class="text-center mb-4">We’d love to hear from you! Fill out the form below to get in touch.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -14,7 +14,7 @@ class ProductForm(forms.ModelForm):
             'price',
             'image',
             'category',
-            'is_sale'
+            'is_new'
         ]
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter product name'}),
@@ -22,7 +22,7 @@ class ProductForm(forms.ModelForm):
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter product price'}),
             'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'category': forms.Select(attrs={'class': 'form-control'}),
-            'is_sale': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+            'is_new': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
 
 

@@ -1,24 +1,24 @@
-{#{% extends 'master.html' %}#}
-{#{% load static %}#}
-{##}
-{#{% block title %}#}
-{#    <title>Product Detail</title>#}
-{#{% endblock %}#}
-{#{% block extra_css %}#}
-{#    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">#}
-{#{%  endblock %}#}
-{##}
-{#{% block content %}#}
-{#    <div class="container">#}
-{#    <div class="product-detail">#}
-{#        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-detail-image">#}
-{#        <h3>{{ product.name }}</h3>#}
-{#        <p class="product-price">KSHS {{ product.price }}</p>#}
-{#        <p class="product-description">{{ product.description }}</p>#}
-{#        <form method="post" action="{% url 'add_to_cart' product_id %}">#}
-{#            {% csrf_token %}#}
-{#            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>#}
-{#        </form>#}
-{#    </div>#}
-{#    </div>#}
-{#{% endblock %}#}
+{% extends 'master.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Product Detail</title>
+{% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+{%  endblock %}
+
+{% block content %}
+    <div class="container">
+    <div class="product-detail">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-detail-image">
+        <h3>{{ product.name }}</h3>
+        <p class="product-price">KSHS {{ product.price }}</p>
+        <p class="product-description">{{ product.description }}</p>
+        <form method="post" action="{% url 'add_to_cart' product_id %}">
+            {% csrf_token %}
+            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+        </form>
+    </div>
+    </div>
+{% endblock %}
