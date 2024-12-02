@@ -1,4 +1,5 @@
 {% extends 'master.html' %}
+{% load crispy_forms_filters %}
 {% load static %}
 
 {% block title %}
@@ -6,15 +7,24 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container py-5">
+
+    <div class="container">
         <h1 class="text-center mt-4">Login</h1>
-        <form method="POST"
-              action="{% url 'login' %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}">
+        <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-secondary">Login</button>
-        </form>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username">
+            </div>
+            <div class="mb-3">
+                <label for="password1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="Password1">
+            </div>
 
-        <p class="text-center mt-3">Don't have an account? <a href="{% url 'signup' %}">Sign Up Here</a></p>
+            <button type="submit" class="btn btn-secondary">Login</button>
+            <p class="text-center mt-3">Don't have an account? <a href="{% url 'signup' %}">Sign Up Here</a></p>
+        </form>
     </div>
+
 {% endblock %}

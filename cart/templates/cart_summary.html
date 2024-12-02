@@ -19,19 +19,146 @@
             </div>
         </div>
     </header>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <div class="container" style="height: 100vh;">
+        {% if cart_products %}
+            {% for product in cart_products %}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ product.image.url }}" class="img-fluid rounded-start" alt="{{ product.name }}"
+                                 style="width:50%">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text justified">{{ product.description }}</p>
+                                {% if product.is_new %}
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        &nbsp;&nbsp;New!&nbsp;&nbsp;
+                                        <div class="bi-star-fill"></div>
+                                        KSHS {{ product.price }}
+                                        <div class="bi-star-fill"></div>
+                                        <div class="row justify-content-center" style="margin-left: 2rem;">
+                                            {#                                            <div class="col-md-2"><h6>Quantity:</h6></div>#}
+
+                                            <select class="form-select form-select-sm" id="qty-cart">
+                                                {% for key, value in quantities.items %}
+                                                    {% if key == product.id|slugify %}
+                                                        <option selected>{{ value }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+
+                                {% else %}}
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        KSH {{ product.price }}
+                                        <div class="row justify-content-center" style="margin-left: 2rem;">
+                                            {#                                            <div class="col-md-2"><h6>Quantity:</h6></div>#}
+
+                                            <select class="form-select form-select-sm" id="select{{ product.id }}">
+                                                {% for key, value in quantities.items %}
+                                                    {% if key == product.id|slugify %}
+                                                        <option selected>{{ value }}</option>
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                {% endif %}
+
+                            <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+                        <button type="button" data-index="{{ product.id }}" class="btn-secondary update-cart">Update</button>
+                        <button type="button" data-index="{{ product.id }}" class="btn-danger delete-product">Remove</button>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+
+        {% else %}
+            <div>
+                <h3 class="text-center mt-5">There is nothing in the Cart. Add products to cart to order</h3>
+                <a href="{% url 'products' %}" class="d-flex justify-content-center mt-5">
+                    <button class="btn btn-secondary">Add Products</button>
+                </a>
+            </div>
+
+        {% endif %}
+
+    </div>
+<script>
+
+// update cart
+        // check if button pressed
+        $(document).on('click', '.update-cart', function(e) {
+            e.preventDefault();
+            // grab the product id
+            var productid = $(this).data('index');
+            $.ajax({
+                type: "POST",
+                url: '{% url 'cart_update' %}',
+                data: {
+                    product_id: $(this).data('index'),
+                    product_qty: $('#select' + productid + 'option:selected').text(),
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
+                success: function (json){
+                    // console.log(json)
+                    //document.getElementById("cart_quantity").textContent = json.qty
+                    location.reload();
+                },
+                error: function (xhr, errmsg, err) {
+
+                }
+            });
+
+        })
+
+// delete product
+        // check if button pressed
+        $(document).on('click', '.delete-product', function(e) {
+            e.preventDefault();
+            // grab the product id
+            //var productid = $(this).data('index');
+            $.ajax({
+                type: "POST",
+                url: '{% url 'cart_delete' %}',
+                data: {
+                    product_id: $(this).data('index'),
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
+                success: function (json){
+                    // console.log(json)
+                    //document.getElementById("cart_quantity").textContent = json.qty
+                    location.reload();
+                },
+                error: function (xhr, errmsg, err) {
+
+                }
+            });
+
+        })
+    </script>
 {% endblock %}

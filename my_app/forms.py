@@ -41,7 +41,7 @@ class ContactForm(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(
-        max_length=30,
+        max_length=50,
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}),
     )
     password = forms.CharField(
@@ -55,12 +55,12 @@ class SignupForm(UserCreationForm):
         widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
     )
     first_name = forms.CharField(
-        label="",
+        label="First Name",
         max_length=50,
         widget=forms.TextInput(attrs={'class': 'form-control'}),
     )
     last_name = forms.CharField(
-        label="",
+        label="Last Name",
         max_length=50,
         widget=forms.TextInput(attrs={'class': 'form-control'}),
     )

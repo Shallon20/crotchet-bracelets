@@ -1,11 +1,6 @@
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from . import views
 
-
-import my_app
-from crotchets_bracelets import settings
-from cart import views
 
 urlpatterns = [
                 path('', views.cart_summary, name='cart_summary'),

@@ -3,6 +3,7 @@ import datetime
 from django.contrib.auth.models import User
 from django.db import models
 
+
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=50)
@@ -10,9 +11,11 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
     class Meta:
         db_table = 'category'
         verbose_name_plural = 'Categories'
+
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
@@ -23,11 +26,27 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_new = models.BooleanField(default=False)
+
     def __str__(self):
         return self.name
+
     class Meta:
         ordering = ['category']
         db_table = 'product'
+        verbose_name_plural = 'Products'
+
+
+class CartItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.quantity} of {self.product.name}"
+
+    def total_price(self):
+        return self.product.price * self.quantity
+
 
 class Customer(models.Model):
     first_name = models.CharField(max_length=30)
@@ -38,6 +57,7 @@ class Customer(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
     class Meta:
         db_table = 'customer'
 
@@ -52,18 +72,8 @@ class CartOrder(models.Model):
     status = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.product
+        return f"{self.product.name}(Customer: {self.customer.first_name})"
 
     class Meta:
-        db_table = 'CartOrder'
-        verbose_name_plural = 'Orders'
-
-class CartItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
-    added_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.quantity} of {self.product.name}"
-    def total_price(self):
-        return self.product.price * self.quantity
+        db_table = 'cart_order'
+        verbose_name_plural = 'cart_orders'
