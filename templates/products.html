@@ -68,6 +68,9 @@
                                             
                                         </div>
                                             <h6>KSHS {{ product.price }}</h6>
+                                            <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">
+                                                Add To Cart
+                                            </button>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -90,6 +93,9 @@
                                         <h5 class="fw-bolder">{{ product.name }}</h5>
                                         <!-- Product price-->
                                         KSHS {{ product.price }}
+                                        <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">
+                                                Add To Cart
+                                            </button>
                                     </div>
                                 </div>
                                 <!-- Product actions-->
@@ -105,4 +111,26 @@
             </div>
         </div>
     </section>
+    <script>
+    // check if button pressed
+    $(document).on('click', '#add-cart', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '{% url 'cart_add' %}',
+            data: {
+                product_id: $('#add-cart').val(),
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                action: 'post'
+            },
+            success: function (json) {
+                console.log(json)
+            },
+            error: function (xhr, errmsg, err) {
+                
+            }
+        });
+        
+    })
+    </script>
 {% endblock %}
