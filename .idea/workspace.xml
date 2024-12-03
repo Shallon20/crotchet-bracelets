@@ -5,28 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4730b0db-3cdc-4c80-9a8f-71861f5b114a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/crotchets_bracelets.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crotchets_bracelets.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/da484397-6914-42ea-9e5d-4826295ea571.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/da484397-6914-42ea-9e5d-4826295ea571.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/category_summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/update_user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/cart.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/cart.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/templates/cart_summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/cart/templates/cart_summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cart/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crotchets_bracelets/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crotchets_bracelets/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/cart.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/product_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/sign_up.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +33,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -209,7 +201,7 @@
       <workItem from="1732728375819" duration="15683000" />
       <workItem from="1732994708025" duration="11059000" />
       <workItem from="1733054042699" duration="49346000" />
-      <workItem from="1733165950603" duration="6230000" />
+      <workItem from="1733165950603" duration="14881000" />
     </task>
     <servers />
   </component>

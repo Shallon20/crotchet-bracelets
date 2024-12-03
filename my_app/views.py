@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.models import User
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
-from my_app.forms import ContactForm, LoginForm, SignupForm, ProductForm
+from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm
 from my_app.models import Product, Category, CartOrder, CartItem
 
 
@@ -58,6 +59,24 @@ def category(request, foo):
         return render(request, "category.html", {'category': category, 'products': products})
     except:
         messages.error(request, 'Please enter a valid category.')
+        return redirect('home')
+def category_summary(request):
+    categories = Category.objects.all()
+    return render(request, 'category_summary.html', {'categories': categories})
+
+def update_user(request):
+    if request.user.is_authenticated:
+        current_user = User.objects.get(id=request.user.id)
+        user_form = UpdateUserForm(request.POST or None, instance=current_user)
+        if user_form.is_valid():
+            user_form.save()
+
+            login(request, current_user)
+            messages.success(request, "User has been updated!!")
+            return redirect('home')
+        return render(request, 'update_user.html', {'user_form': user_form})
+    else:
+        messages.error(request, 'Please login first.')
         return redirect('home')
 
 def login_user(request):
