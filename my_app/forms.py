@@ -31,7 +31,7 @@ class UpdateUserForm(UserChangeForm):
 
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['username'].widget.attrs['placeholder'] = 'Username'
-        self.fields['username'].label = 'Username'
+        self.fields['username'].label = 'username'
         self.fields['username'].help_text = '<span class="glyphicon glyphicon-user"></span>'
 
 class ProductForm(forms.ModelForm):

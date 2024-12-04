@@ -1,5 +1,9 @@
+from venv import logger
+
 from my_app.models import Product
-class Cart():
+
+
+class Cart:
     def __init__(self, request):
         self.session = request.session
 
@@ -15,7 +19,7 @@ class Cart():
 
     def add(self, product, quantity):
         product_id = str(product.id)
-        product_qty =str(quantity)
+        product_qty = str(quantity)
         # logic
         if product_id in self.cart:
             pass
@@ -29,7 +33,7 @@ class Cart():
         return len(self.cart)
 
     def get_prods(self):
-        #get ids from cart
+        # get ids from cart
         product_ids = self.cart.keys()
         # use ids to lookup products in database model
         products = Product.objects.filter(id__in=product_ids)
@@ -37,20 +41,20 @@ class Cart():
         return products
 
     def get_quants(self):
-        quantities = self.cart
-        return quantities
+        # convert quantities dictionary for template use
+        return {str(key): value for key, value in self.cart.items()}
 
-    def update(self, product, quantity):
-        product_id = str(product.id)
-        product_qty = str(quantity)
-        #get cart
-        ourcart = self.cart
-        #update dictionary/cart
-        ourcart[product_id] = product_qty
+    def update(self, product_id, quantity):
+        # Ensure that product_id is a string and quantity is an integer
+        product_id = str(product_id)  # Make sure it's a string
+        product_qty = int(quantity)  # Convert quantity to integer
 
-        self.session.modified = True
-        thing = self.cart
-        return thing
+        # Log the update process
+        logger.debug(f"Updating cart: Product ID: {product_id}, Quantity: {product_qty}")
+
+        # Update the cart dictionary with the new quantity
+        self.cart[product_id] = product_qty
+        self.session.modified = True  # Mark session as modified to save changes
 
     def delete(self, product):
         product_id = str(product.id)
@@ -63,17 +67,14 @@ class Cart():
     def cart_total(self):
         # get product ids
         product_ids = self.cart.keys()
-        #lookup those keys in our product database model
+        # lookup those keys in our product database model
         products = Product.objects.filter(id__in=product_ids)
         # get quantities
         quantities = self.cart
         # start counting at 0
         total = 0
-        for key, value in quantities.items():
-            # convert string to int so that we can do the math
-            key = int(key)
-            for product in products:
-                if product.id == key:
-                    total = total + (product.price * value)
+        for product in products:
+            product_id = str(product.id)
+            total += product.price * int(quantities[product_id])
 
-            return total
+        return total

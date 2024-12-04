@@ -5,7 +5,7 @@
     <title>Cart</title>
 {% endblock %}
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/category.css' %}">
+
 {% endblock %}
 
 {% block content %}
@@ -41,33 +41,7 @@
                                         KSHS {{ product.price }}
                                         <div class="bi-star-fill"></div>
                                         <div class="row justify-content-center" style="margin-left: 2rem;">
-                                            {#                                            <div class="col-md-2"><h6>Quantity:</h6></div>#}
-
-                                            <select class="form-select form-select-sm" id="qty-cart">
-                                                {% for key, value in quantities.items %}
-                                                    {% if key == product.id|slugify %}
-                                                        <option selected>{{ value }}</option>
-                                                    {% endif %}
-                                                {% endfor %}
-
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    </div>
-
-                                {% else %}}
-                                    <div class="d-flex justify-content-center small text-warning mb-2">
-                                        <div class="bi-star-fill"></div>
-                                        <div class="bi-star-fill"></div>
-                                        KSH {{ product.price }}
-                                        <div class="row justify-content-center" style="margin-left: 2rem;">
-                                            {#                                            <div class="col-md-2"><h6>Quantity:</h6></div>#}
-
+                                            <label for="qty-cart">Quantity:</label>
                                             <select class="form-select form-select-sm" id="select{{ product.id }}">
                                                 {% for key, value in quantities.items %}
                                                     {% if key == product.id|slugify %}
@@ -83,18 +57,46 @@
                                             </select>
                                         </div>
                                     </div>
+                                    </div>
+
+                                {% else %}
+                                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                        <div class="bi-star-fill"></div>
+                                        <div class="bi-star-fill"></div>
+                                        KSH {{ product.price }}
+                                        <div class="row justify-content-center" style="margin-left: 2rem;">
+                                            <label for="qty-cart">Quantity:</label> <select
+                                                class="form-select form-select-sm" id="select{{ product.id }}">
+                                            {% for key, value in quantities.items %}
+                                                {% if key == product.id|slugify %}
+                                                    <option selected>{{ value }}</option>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                        </div>
+                                    </div>
 
                                 {% endif %}
 
                             <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
-                        <button type="button" data-index="{{ product.id }}" class="btn-secondary update-cart">Update</button>
-                        <button type="button" data-index="{{ product.id }}" class="btn-danger delete-product">Remove</button>
+                            <button type="button" data-index="{{ product.id }}" class="btn-secondary update-cart">
+                                Update
+                            </button>
+                            <button type="button" data-index="{{ product.id }}" class="btn-danger delete-product">
+                                Remove
+                            </button>
                         </div>
                     </div>
 
                 </div>
             {% endfor %}
-<h3>Total: KSHS {{ totals }}</h3>
+            <h3>Total: KSHS {{ totals }}</h3>
         {% else %}
             <div>
                 <h3 class="text-center mt-5">There is nothing in the Cart. Add products to cart to order</h3>
@@ -106,38 +108,36 @@
         {% endif %}
 
     </div>
-<script>
+    <script>
 
-// update cart
+        // update cart
         // check if button pressed
-        $(document).on('click', '.update-cart', function(e) {
-            e.preventDefault();
-            // grab the product id
-            var productid = $(this).data('index');
-            $.ajax({
-                type: "POST",
-                url: '{% url 'cart_update' %}',
-                data: {
-                    product_id: $(this).data('index'),
-                    product_qty: $('#select' + productid + 'option:selected').text(),
-                    csrfmiddlewaretoken: '{{ csrf_token }}',
-                    action: 'post'
-                },
-                success: function (json){
-                    // console.log(json)
-                    //document.getElementById("cart_quantity").textContent = json.qty
-                    location.reload();
-                },
-                error: function (xhr, errmsg, err) {
+$(document).on('click', '.update-cart', function (e) {
+    e.preventDefault();
+    const productId = $(this).data('index');  // The product ID from the data-index
+    const productQty = $('#select' + productId).val();  // Use the select element to get the quantity
+    $.ajax({
+        type: "POST",
+        url: '{% url 'cart_update' %}',
+        data: {
+            product_id: productId,
+            product_qty: productQty,  // Pass the selected quantity
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action: 'post'
+        },
+        success: function (json) {
+            location.reload();  // Reload the page to reflect the changes
+        },
+        error: function (xhr, errmsg, err) {
+            console.error(err);
+            alert('Error updating the cart. Please try again');
+        }
+    });
+})
 
-                }
-            });
-
-        })
-
-// delete product
+        // delete product
         // check if button pressed
-        $(document).on('click', '.delete-product', function(e) {
+        $(document).on('click', '.delete-product', function (e) {
             e.preventDefault();
             // grab the product id
             //var productid = $(this).data('index');
@@ -149,7 +149,7 @@
                     csrfmiddlewaretoken: '{{ csrf_token }}',
                     action: 'post'
                 },
-                success: function (json){
+                success: function (json) {
                     // console.log(json)
                     //document.getElementById("cart_quantity").textContent = json.qty
                     location.reload();
