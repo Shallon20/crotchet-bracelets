@@ -19,28 +19,7 @@
 
     <div class="container py-5">
     <h1 class="text-center mt-4">Update Profile</h1>
-    <form method="POST" action="{% url 'update_user' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Username">
-        </div>
-        <div class="mb-3">
-            <label for="fname" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="fname">
-        </div>
-        <div class="mb-3">
-            <label for="lname" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lname">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email1" aria-describedby="emailHelp">
-        </div>
-
-        <button type="submit" class="btn btn-secondary">Update Profile</button>
-
-    </form>
+    messages.error(request, 'Please login first.')
+        return redirect('home')
     </div>
 {% endblock %}
