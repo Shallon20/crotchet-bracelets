@@ -73,16 +73,18 @@ def category_summary(request):
 
 @login_required
 def update_user(request):
-    current_user = User.objects.get(id=request.user.id)
+    current_user = request.user  # Access the currently logged-in user
     user_form = UpdateUserForm(request.POST or None, instance=current_user)
 
-    if user_form.is_valid():
-        user_form.save()
-        messages.success(request, "Profile updated successfully!")
-        return redirect('home')
+    if request.method == 'POST':
+        if user_form.is_valid():
+            user_form.save()
+            messages.success(request, "Profile updated successfully!")
+            return redirect('home')
+        else:
+            messages.error(request, "There was an error updating your profile.")
 
-    else:
-        return render(request, 'update_user.html', {'user_form': user_form})
+    return render(request, 'update_user.html', {'user_form': user_form})
 
 
 def login_user(request):

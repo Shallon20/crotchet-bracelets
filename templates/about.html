@@ -6,21 +6,92 @@
 {% endblock %}
 
 {% block content %}
-    <h1>About Us</h1>
-        <!-- Header-->
+    <!-- Header with Slider -->
     <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Shop in style</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop home page template</p>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/slider1.jpg' %}" class="d-block w-100" alt="Handmade Craft Image">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-white fw-bolder">Shop in Style</h1>
+                        <p class="text-white-50">With beautiful handmade creations</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/slider2.jpg' %}" class="d-block w-100" alt="Unique Jewelry">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-white fw-bolder">Handcrafted with Love</h1>
+                        <p class="text-white-50">Explore our timeless designs</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/slider3.jpg' %}" class="d-block w-100" alt="Eco-friendly Materials">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 class="text-white fw-bolder">Sustainable Elegance</h1>
+                        <p class="text-white-50">Crafted from eco-friendly materials</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </header>
-<div class="container">
-<div class="row">
-    <div class="col-sm-8">
-        <p class="justify-content-center"><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem cum, delectus exercitationem ipsa itaque laboriosam maxime minima, neque odit possimus quae quibusdam quo quod saepe ullam. Molestiae nulla quaerat quam!</span><span>Animi commodi distinctio dolorem excepturi fuga libero repellat, veritatis voluptatem. Ab aspernatur delectus et eum ex, incidunt inventore libero minima minus modi obcaecati quaerat, quasi quis quos, repellendus veniam vero?</span><span>Ab ad asperiores assumenda aut consequatur cum cupiditate dicta dolorem doloremque doloribus error et eveniet ex explicabo fugit id inventore ipsum laudantium maxime molestias, pariatur quae sequi similique tempora tenetur!</span><span>Aspernatur atque dicta ducimus ea earum eius eum fuga harum, illo inventore, ipsam non possimus qui quisquam reprehenderit sapiente sed tempora vero voluptas voluptatibus. A ad dolorem doloremque expedita inventore?</span><span>A error eveniet iure laudantium, magnam mollitia provident totam velit. Aliquam consequatur consequuntur debitis ducimus, earum exercitationem facilis hic itaque mollitia nemo officiis quam quas ratione rem similique. Commodi, culpa.</span></p>
+
+    <!-- About Section -->
+    <div class="container py-5">
+        <h1 class="text-center mt-4">About Us</h1>
+        <p class="text-center lead mt-3">Welcome to <strong>E&S Crochet And Jewellery</strong>, where tradition meets creativity!</p>
+
+        <section class="my-5">
+            <h2 class="text-center">Our Mission</h2>
+            <p class="text-justify">
+                At <strong>E&S Crochet And Jewellery</strong>, we aim to celebrate the art of handmade craftsmanship by bringing
+                you timeless designs that blend beauty and functionality. We believe in the power of creativity to make
+                life more meaningful and joyful.
+            </p>
+            <div class="text-center">
+                <img src="{% static 'images/mission.jpg' %}" alt="Our Mission" class="img-fluid rounded shadow-sm" style="max-width: 80%;">
+            </div>
+        </section>
+
+        <section class="my-5">
+            <h2 class="text-center">What Makes Us Special?</h2>
+            <ul class="list-unstyled text-center">
+                <li><i class="bi bi-check-circle-fill"></i> <strong>Sustainable Materials:</strong> We prioritize eco-friendly and ethically sourced materials in all our creations.</li>
+                <li><i class="bi bi-check-circle-fill"></i> <strong>Custom Creations:</strong> Looking for something truly unique? We love working on personalized designs that reflect your style and story.</li>
+                <li><i class="bi bi-check-circle-fill"></i> <strong>Support for Artisans:</strong> Every purchase supports skilled artisans and helps preserve the tradition of handmade crafts.</li>
+            </ul>
+            <div class="text-center">
+                <img src="{% static 'images/special.jpg' %}" alt="What Makes Us Special" class="img-fluid rounded shadow-sm" style="max-width: 80%;">
+            </div>
+        </section>
+
+        <section class="my-5">
+            <h2 class="text-center">Why Choose Handmade?</h2>
+            <p class="text-justify">
+                In a world dominated by mass production, handmade items stand out as a testament to individuality and
+                care. When you choose handmade, you choose quality, authenticity, and a connection to the artist who made it.
+            </p>
+            <div class="text-center">
+                <img src="{% static 'images/handmade.jpg' %}" alt="Why Choose Handmade" class="img-fluid rounded shadow-sm" style="max-width: 80%;">
+            </div>
+        </section>
+
+        <div class="text-center my-4">
+            <h3>Join Us</h3>
+            <p>Explore our collection or reach out for custom designs. Together, let’s add a touch of artistry to your everyday life!</p>
+            <a href="{% url 'products' %}" class="btn btn-primary">Explore Our Collection</a>
+        </div>
     </div>
-</div>
-</div>
 {% endblock %}
