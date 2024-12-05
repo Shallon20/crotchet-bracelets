@@ -1,6 +1,6 @@
 from django.contrib import admin
-
-from my_app.models import Category, Product, CartOrder, Customer, CartItem
+from django.contrib.auth.models import User
+from my_app.models import Category, Product, CartOrder, Customer, CartItem, Profile
 
 # Register your models here.
 admin.site.site_header = 'E&S Crotchet & Jewellery Administration'
@@ -42,11 +42,38 @@ class CartOrderAdmin(admin.ModelAdmin):
     list_filter = ['status']
     list_per_page = 25
 
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['phone', 'city', 'country']
+    search_fields = ['phone', 'city', 'country']
+    list_filter = ['city', 'country']
+    list_per_page = 25
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(CartOrder, CartOrderAdmin)
 admin.site.register(CartItem, CartItemAdmin)
 admin.site.register(Customer, CustomerAdmin)
+admin.site.register(Profile, ProfileAdmin)
+
+# mix profile info and user info
+class ProfileInline(admin.StackedInline):
+    model = Profile
+
+class UserAdmin(admin.ModelAdmin):
+    model = User
+    field = ["Username", "first_name", "last_name", "Email"]
+    list_display = ["first_name", "last_name"]
+    inlines = [ProfileInline]
+
+    # unregister the old way
+admin.site.unregister(User)
+
+# Re-register the new way
+admin.site.register(User, UserAdmin)
+
+
+
+
 
 # python3 manage.py createsuperuser
 
@@ -57,6 +84,6 @@ admin.site.register(Customer, CustomerAdmin)
 #shallon
 #Sha@2001
 
-#maria
+#Maria
 #maria01@gmail.com
-#Maria@2001
+#Maria_2001
