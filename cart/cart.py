@@ -19,6 +19,28 @@ class Cart:
         # make sure cart is available in all pages of the site
         self.cart = cart
 
+    def db_add(self, product, quantity):
+        product_id = str(product)
+        product_qty = str(quantity)
+        # logic
+        if product_id in self.cart:
+            pass
+        else:
+            # self.cart[product_id] = {'price': str(product.price)}
+            self.cart[product_id] = int(product_qty)
+
+        self.session.modified = True
+        # deal with logged-in user
+        if self.request.user.is_authenticated:
+            # get current user
+            current_user = Profile.objects.filter(user__id=self.request.user.id)
+            # convert single quotes to double quotes
+            carty = str(self.cart)
+            carty = carty.replace("\'", "\"")
+            # save carty to profile model
+            current_user.update(old_cart=str(carty))
+
+
     def add(self, product, quantity):
         product_id = str(product.id)
         product_qty = str(quantity)
@@ -30,19 +52,20 @@ class Cart:
             self.cart[product_id] = int(product_qty)
 
         self.session.modified = True
-        # deal with logged in user
+        # deal with logged-in user
         if self.request.user.is_authenticated:
             # get current user
             current_user = Profile.objects.filter(user__id=self.request.user.id)
-             # convert single quotes to double quotes
+            # convert single quotes to double quotes
             carty = str(self.cart)
             carty = carty.replace("\'", "\"")
-            #save carty to profile model
+            # save carty to profile model
             current_user.update(old_cart=str(carty))
 
 
     def __len__(self):
         return len(self.cart)
+
 
     def get_prods(self):
         # get ids from cart
@@ -52,9 +75,11 @@ class Cart:
         # return looked up products
         return products
 
+
     def get_quants(self):
         # convert quantities dictionary for template use
         return {str(key): value for key, value in self.cart.items()}
+
 
     def update(self, product_id, quantity):
         # Ensure that product_id is a string and quantity is an integer
@@ -68,6 +93,13 @@ class Cart:
         self.cart[product_id] = product_qty
         self.session.modified = True  # Mark session as modified to save changes
 
+        if self.request.user.is_authenticated:
+            current_user = Profile.objects.filter(user__id=self.request.user.id)
+            carty = str(self.cart)
+            carty = carty.replace("\'", "\"")
+            current_user.update(old_cart=str(carty))
+
+
     def delete(self, product):
         product_id = str(product.id)
         # delete from dictionary/cart
@@ -75,6 +107,12 @@ class Cart:
             del self.cart[product_id]
 
         self.session.modified = True
+
+        if self.request.user.is_authenticated:
+            current_user = Profile.objects.filter(user__id=self.request.user.id)
+            carty = str(self.cart)
+            carty = carty.replace("\'", "\"")
+            current_user.update(old_cart=str(carty))
 
     def cart_total(self):
         # get product ids

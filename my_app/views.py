@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-
+import json
+from cart.cart import Cart
 from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
 from my_app.models import Product, Category, Profile
 
@@ -87,6 +88,19 @@ def login_user(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
+                # do some shopping cart retrieval
+                current_user = Profile.objects.get(user__id=user.id)
+                # get saved cart from it
+                saved_cart = current_user.old_cart
+                # convert db string to python dictionary
+                if saved_cart:
+                    # convert using json
+                    converted_cart =  json.loads(saved_cart)
+                    # add loaded dictionary to cart
+                    cart = Cart(request)
+                    # loop through the cart and add items from db
+                    for key, value in converted_cart.items():
+                        cart.db_add(product=key, quantity=value)
                 messages.success(request, "You are now logged in!")
                 return redirect('home')
 
