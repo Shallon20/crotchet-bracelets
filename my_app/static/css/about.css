@@ -1,0 +1,24 @@
+
+.slider-img {
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.btn-general {
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+    background-color: #000;
+}
+
+.btn-general a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-general:hover {
+    transition: ease .5s;
+    background-color: rgba(27, 26, 26, 0.9);
+}

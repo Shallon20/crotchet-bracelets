@@ -5,17 +5,12 @@
 {% block title %}
     <title>Update User</title>
 {% endblock %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
 
 {% block content %}
-    <!-- Header-->
-    <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Update Profile</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Update User</p>
-            </div>
-        </div>
-    </header>
+    {% include 'header.html' %}
     
     <div class="container py-5">
         <h1 class="text-center mb-4">Your Profile</h1>

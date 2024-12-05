@@ -10,37 +10,11 @@
 {% endblock %}
 
 {% block content %}
-    {#    <div class="container" style="margin-top: 7rem;">#}
-    {#        <h1>Our Products</h1>#}
-    {#        <div class="row">#}
-    {#            {% for product in products %}#}
-    {#                <div class="col-md-4 col-sm-6 mb-4">#}
-    {#                    <div class="card h-100 shadow-sm">#}
-    {#                        <div class="position-relative">#}
-    {#                            <img#}
-    {#                                    src="{{ product.image.url|default:'https://via.placeholder.com/300' }}"#}
-    {#                                    class="card-img-top product-image"#}
-    {#                                    alt="{{ product.name }}">#}
-    {#                            {% if product.is_new %}#}
-    {#                                <span class="badge bg-success position-absolute top-0 start-0 m-2">New</span>#}
-    {#                            {% endif %}#}
-    {#                        </div>#}
-    {#                        <div class="card-body">#}
-    {#                            <h5 class="card-title product-name">{{ product.name }}</h5>#}
-    {#                            <p class="card-text product-description">{{ product.description }}</p>#}
-    {#                            <p class="card-text product-price">KSHS {{ product.price }}</p>#}
-    {#                            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>#}
-    {#                        </div>#}
-    {#                    </div>#}
-    {#                </div>#}
-    {#            {% endfor %}#}
-    {#        </div>#}
-    {#    </div>#}
-
+   
     <!-- Section-->
     <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5">
-            <h1>Our Products</h1>
+        <div class="container px-4 px-lg-5">
+            <h1 class="text-center">Our Products</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 {% for product in products %}
                     {% if product.is_new %}
@@ -68,7 +42,7 @@
 
                                         </div>
                                         <h6>KSHS {{ product.price }}</h6>
-                                        <div class="d-flex justify-content-between">
+                                        <div class="d-flex gap-4 justify-content-between align-items-center mb-4 mt-4">
                                             <label for="qty-cart">Quantity:</label>
                                             <select class="form-select" id="qty-cart">
                                                 <option value="1" selected>1</option>
@@ -85,13 +59,6 @@
                                         </button>
                                     </div>
                                 </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                                                href="#">View
-                                        options</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     {% else %}
@@ -106,7 +73,7 @@
                                         <h5 class="fw-bolder">{{ product.name }}</h5>
                                         <!-- Product price-->
                                         KSHS {{ product.price }}
-                                        <div class="d-flex justify-content-between">
+                                        <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
                                             <label for="qty-cart">Quantity:</label>
                                             <select class="form-select" id="qty-cart">
                                                 <option value="1" selected>1</option>
@@ -121,13 +88,6 @@
                                                 id="add-cart">
                                             Add To Cart
                                         </button>
-                                    </div>
-                                </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto"
-                                                                href="#">View
-                                        options</a>
                                     </div>
                                 </div>
                             </div>

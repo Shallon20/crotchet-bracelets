@@ -14,11 +14,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     {% block extra_css %}
+        <link rel="stylesheet" href="{% static 'css/about.css' %}">
     {% endblock %}
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white" >
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="{% url 'home' %}">E & S</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -63,59 +64,22 @@
         </div>
     </div>
 </nav>
-
-
-{#<nav class="navbar navbar-expand-sm w-100 bg-dark">#}
-{#    <div class="container-fluid">#}
-{#        <a class="navbar-brand" href="{% url 'home' %}">E & S</a>#}
-{#        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">#}
-{#            <span class="navbar-toggler-icon"></span>#}
-{#        </button>#}
-{#        <div class="collapse navbar-collapse" id="mynavbar">#}
-{#            <ul class="navbar-nav me-auto" style="display: flex; gap: 5rem; margin-left: 2rem">#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{% url 'home' %}">Home</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{% url 'products' %}">Products</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a>#}
-{#                </li>#}
-{#                <li class="nav-item">#}
-{#                    <a class="nav-link" href="{% url 'cart' %}">Cart</a>#}
-{#                </li>#}
-{#            </ul>#}
-{#            <form class="d-flex gap-5" method="POST" action="{% url 'search_product' %}">#}
-{#                {% csrf_token %}#}
-{#                <div>#}
-{#                    <a class="nav-link" href="{% url 'login_user' %}"><img src="{% static 'images/profile.png' %}"#}
-{#                                                                      alt="login-pic"></a>#}
-{#                </div>#}
-{#                <div>#}
-{#                    <a class="nav-link" href="{% url 'cart' %}"><img src="{% static 'images/cart.png' %}"#}
-{#                                                                     alt="cart-pic"></a>#}
-{#                </div>#}
-{#                <input class="form-control me-2" type="search" placeholder="Search Products" name="searched">#}
-{#                <button class="btn btn-outline-secondary" type="submit">Search</button>#}
-{#            </form>#}
-{#        </div>#}
-{#    </div>#}
-{#</nav>#}
-
-{% block content %}
-
-{% endblock %}
-
-
+<div style="margin-top: 4rem">
 {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-5 container" role="alert" style="margin-top: 20px;">
                 {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
 {% endif %}
+</div>
+{% block content %}
+
+{% endblock %}
+
+
+
 
 
 {% include 'footer.html' %}

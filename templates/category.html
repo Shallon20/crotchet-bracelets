@@ -5,23 +5,16 @@
     <title>Product Detail</title>
 {% endblock %}
 {% block extra_css %}
-   
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock %}
 
 {% block content %}
 
-    <!-- Header-->
-    <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">{{ category }}</h1>
-                <p class="lead fw-normal text-white-50 mb-0">Category Page</p>
-            </div>
-        </div>
-    </header>
+    {% include 'header.html' %}
+
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
-            <h1>Our Products</h1>
+            <h1 class="text-center">{{ category }}</h1>
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 {% for product in products %}
                     {% if product.is_new %}
@@ -44,13 +37,23 @@
                                             &nbsp;&nbsp;New!&nbsp;&nbsp;
                                             <div class="bi-star-fill"></div>
                                         </div>
-                                            <h6>KSHS {{ product.price }}</h6>
-                                    </div>
-                                </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View
-                                        options</a>
+                                        <h6>KSHS {{ product.price }}</h6>
+                                        <div class="d-flex gap-4 justify-content-between align-items-center mb-4 mt-4">
+                                            <label for="qty-cart">Quantity:</label>
+                                            <select class="form-select" id="qty-cart">
+                                                <option value="1" selected>1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+
+                                        <button type="button" value="{{ product.id }}"
+                                                class="btn btn-secondary add-cart"
+                                                id="add-cart">
+                                            Add To Cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -67,12 +70,22 @@
                                         <h5 class="fw-bolder">{{ product.name }}</h5>
                                         <!-- Product price-->
                                         KSHS {{ product.price }}
-                                    </div>
-                                </div>
-                                <!-- Product actions-->
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View
-                                        options</a>
+                                        <div class="d-flex gap-4 justify-content-between align-items-center mb-4 mt-4">
+                                            <label for="qty-cart">Quantity:</label>
+                                            <select class="form-select" id="qty-cart">
+                                                <option value="1" selected>1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+
+                                        <button type="button" value="{{ product.id }}"
+                                                class="btn btn-secondary add-cart"
+                                                id="add-cart">
+                                            Add To Cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -82,4 +95,31 @@
             </div>
         </div>
     </section>
+    <script>
+     $(document).on('click', '#add-cart', function (e) {
+            e.preventDefault();
+            const productId = $(this).val();
+            const productQty = $(this).closest('.card').find('#qty-cart').val();
+
+            $.ajax({
+                type: "POST",
+                url: '{% url 'cart_add' %}',
+                data: {
+                    product_id: productId,
+                    product_qty: productQty,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
+                success: function (json) {
+                    // console.log(json)
+                    document.getElementById("cart_quantity").textContent = json.qty;
+                    location.reload();
+                },
+                error: function (xhr, errmsg, err) {
+
+                }
+            });
+
+        })
+    </script>
 {% endblock %}
