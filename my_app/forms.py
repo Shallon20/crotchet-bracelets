@@ -2,7 +2,20 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, SetPasswordForm
 from django.contrib.auth.models import User
 
-from my_app.models import Product
+from my_app.models import Product, Profile
+
+class UserInfoForm(forms.ModelForm):
+    phone = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Phone'}), required=False)
+    address1 = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Address 1'}), required=False)
+    address2 = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Address 2'}), required=False)
+    city = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'City'}), required=False)
+    state = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'State'}), required=False)
+    zipcode = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Zipcode'}), required=False)
+    country = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control','placeholder': 'Country'}), required=False)
+
+    class Meta:
+        model = Profile
+        fields = ('phone', 'address1', 'address2', 'city', 'state', 'zipcode', 'country')
 
 class ChangePasswordForm(SetPasswordForm):
     class Meta:
@@ -27,18 +40,20 @@ class UpdateUserForm(UserChangeForm):
     password = None
     # get other fields
     email = forms.EmailField(
-        required=True,
+        required=False,
         widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
     )
     first_name = forms.CharField(
         label="First Name",
         max_length=50,
         widget=forms.TextInput(attrs={'class': 'form-control'}),
+        required=False,
     )
     last_name = forms.CharField(
         label="Last Name",
         max_length=50,
         widget=forms.TextInput(attrs={'class': 'form-control'}),
+        required=False,
     )
     class Meta:
         model = User

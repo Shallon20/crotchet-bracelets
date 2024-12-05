@@ -6,8 +6,8 @@ from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
-from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm, ChangePasswordForm
-from my_app.models import Product, Category, CartOrder, CartItem
+from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
+from my_app.models import Product, Category, Profile
 
 
 # Create your views here.
@@ -107,8 +107,8 @@ def signup_user(request):
             user.set_password(form.cleaned_data['password1'])
             user.save()
             login(request, user)
-            messages.success(request, 'Account created successfully. Welcome!')
-            return redirect('home')
+            messages.success(request, 'Account created successfully. Please update your user info')
+            return redirect('update_info')
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
@@ -158,6 +158,25 @@ def update_password(request):
         else:
             form = ChangePasswordForm(current_user)
             return render(request, 'update_password.html', {'form': form})
+    else:
+        messages.error(request, 'You are not logged in.')
+        return redirect('login')
+
+
+def update_info(request):
+    if request.user.is_authenticated:
+        current_user = Profile.objects.get(user__id=request.user.id)
+        form = UserInfoForm(request.POST or None, instance=current_user)
+
+        if request.method == 'POST':
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Your Info has updated successfully!")
+                return redirect('home')
+            else:
+                messages.error(request, "There was an error updating your Info.")
+
+        return render(request, 'update_info.html', {'form': form})
     else:
         messages.error(request, 'You are not logged in.')
         return redirect('login')
