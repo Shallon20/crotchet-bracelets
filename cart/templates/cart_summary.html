@@ -5,7 +5,7 @@
     <title>Cart</title>
 {% endblock %}
 {% block extra_css %}
-
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
         </div>
     </header>
     <br>
-    <div class="container" style="height: 100vh;">
+    <div class="container">
         {% if cart_products %}
             {% for product in cart_products %}
                 <div class="card mb-3">
@@ -81,7 +81,6 @@
                                         </select>
                                         </div>
                                     </div>
-
                                 {% endif %}
 
                             <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
@@ -104,36 +103,37 @@
                     <button class="btn btn-secondary">Add Products</button>
                 </a>
             </div>
-
         {% endif %}
-
     </div>
+
+{% endblock %}
+{% block extra_js %}
     <script>
 
         // update cart
         // check if button pressed
-$(document).on('click', '.update-cart', function (e) {
-    e.preventDefault();
-    const productId = $(this).data('index');  // The product ID from the data-index
-    const productQty = $('#select' + productId).val();  // Use the select element to get the quantity
-    $.ajax({
-        type: "POST",
-        url: '{% url 'cart_update' %}',
-        data: {
-            product_id: productId,
-            product_qty: productQty,  // Pass the selected quantity
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            action: 'post'
-        },
-        success: function (json) {
-            location.reload();  // Reload the page to reflect the changes
-        },
-        error: function (xhr, errmsg, err) {
-            console.error(err);
-            alert('Error updating the cart. Please try again');
-        }
-    });
-})
+        $(document).on('click', '.update-cart', function (e) {
+            e.preventDefault();
+            const productId = $(this).data('index');  // The product ID from the data-index
+            const productQty = $('#select' + productId).val();  // Use the select element to get the quantity
+            $.ajax({
+                type: "POST",
+                url: '{% url 'cart_update' %}',
+                data: {
+                    product_id: productId,
+                    product_qty: productQty,  // Pass the selected quantity
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
+                success: function (json) {
+                    location.reload();  // Reload the page to reflect the changes
+                },
+                error: function (xhr, errmsg, err) {
+                    console.error(err);
+                    alert('Error updating the cart. Please try again');
+                }
+            });
+        })
 
         // delete product
         // check if button pressed
@@ -161,4 +161,5 @@ $(document).on('click', '.update-cart', function (e) {
 
         })
     </script>
+
 {% endblock %}

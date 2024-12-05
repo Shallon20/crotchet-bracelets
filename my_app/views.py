@@ -6,7 +6,7 @@ from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 
-from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm
+from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm, ChangePasswordForm
 from my_app.models import Product, Category, CartOrder, CartItem
 
 
@@ -137,3 +137,27 @@ def search_product(request):
             return render(request, "search.html", {'searched': searched, 'products': products})
         return render(request, "search.html", {'error': 'Please enter a search term.'})
     return redirect('home')
+
+
+def update_password(request):
+    if request.user.is_authenticated:
+        current_user = request.user
+        # did they fill out the form
+        if request.method == 'POST':
+            form = ChangePasswordForm(current_user, request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Password updated successfully!")
+                login(request, current_user)
+                return redirect('update_user')
+            else:
+                for error in list(form.errors.values()):
+                    messages.error(request, error)
+                return render(request, 'update_password.html', {'form': form})
+
+        else:
+            form = ChangePasswordForm(current_user)
+            return render(request, 'update_password.html', {'form': form})
+    else:
+        messages.error(request, 'You are not logged in.')
+        return redirect('login')
