@@ -87,7 +87,10 @@
 
                 </div>
             {% endfor %}
-            <h3>Total: KSHS {{ totals }}</h3>
+            <div class="d-flex flex-column align-items-end m-3">
+                <h3>Total: KSHS {{ totals }}</h3>
+                <a href="{% url 'checkout' %}" class="btn btn-success mt-2">Checkout</a>
+            </div>
         {% else %}
             <div>
                 <h3 class="text-center mt-5">There is nothing in the Cart. Add products to cart to order</h3>
