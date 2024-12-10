@@ -13,7 +13,7 @@
     {% include 'header.html' %}
     
     <div class="container py-5">
-        <h1 class="text-center mb-4">Billing Information</h1>
+        <strong>User Information</strong>
         <form method="POST" action="{% url 'update_info' %}">
             {% csrf_token %}
             {{ form.as_p }}
