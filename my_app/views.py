@@ -8,6 +8,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 import json
 from cart.cart import Cart
 from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
+from payment.forms import ShippingForm
+from payment.models import ShippingAddress
 from my_app.models import Product, Category, Profile
 
 
@@ -179,18 +181,27 @@ def update_password(request):
 
 def update_info(request):
     if request.user.is_authenticated:
+        # get current user
         current_user = Profile.objects.get(user__id=request.user.id)
+        # get current user's shipping info
+        shipping_user = ShippingAddress.objects.get(user__id=request.user.id)
+        # Get original user for
         form = UserInfoForm(request.POST or None, instance=current_user)
-
+        # get user's shipping form
+        shipping_form = ShippingForm(request.POST or None, instance=shipping_user)
         if request.method == 'POST':
-            if form.is_valid():
+            if form.is_valid() or shipping_form.is_valid():
+                # save original form
                 form.save()
+                # save shipping form
+                shipping_form.save()
+
                 messages.success(request, "Your Info has updated successfully!")
                 return redirect('home')
             else:
                 messages.error(request, "There was an error updating your Info.")
 
-        return render(request, 'update_info.html', {'form': form})
+        return render(request, 'update_info.html', {'form': form, 'shipping_form': shipping_form})
     else:
         messages.error(request, 'You are not logged in.')
         return redirect('login')

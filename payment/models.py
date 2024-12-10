@@ -9,14 +9,14 @@ class ShippingAddress(models.Model):
         null=True,
         blank=True,
     )
-    full_name = models.CharField(max_length=100)
-    email = models.EmailField(max_length=100)
-    address1 = models.CharField(max_length=100)
-    address2 = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    zipcode = models.CharField(max_length=100)
-    country = models.CharField(max_length=100)
+    shipping_full_name = models.CharField(max_length=100)
+    shipping_email = models.EmailField(max_length=100)
+    shipping_address1 = models.CharField(max_length=100)
+    shipping_address2 = models.CharField(max_length=100, null=True, blank=True)
+    shipping_city = models.CharField(max_length=100)
+    shipping_state = models.CharField(max_length=100, null=True, blank=True)
+    shipping_zipcode = models.CharField(max_length=100, null=True, blank=True)
+    shipping_country = models.CharField(max_length=100)
 
     class Meta:
         verbose_name_plural = "Shipping Address"
