@@ -47,10 +47,13 @@
             <div class="card mt-5 mb-2">
                 <div class="card-header">Shipping Information</div>
                 <div class="card-body">
-                    {{ shipping_form.as_p }}
+                    <form method="POST" action="{% url 'billing_info' %}">
+                        {% csrf_token %}
+                        {{ shipping_form.as_p }}
+                    </form>
                 </div>
             </div>
-                <a href="#" class="btn btn-secondary mb-5">Continue To Billing</a>
+                <button type="submit" class="btn btn-secondary mb-5">Continue To Billing</button>
             </div>
         </div>
     </div>
