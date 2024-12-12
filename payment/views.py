@@ -122,3 +122,33 @@ def process_order(request):
     else:
         messages.error(request, 'Access Denied!!')
         return redirect('home')
+
+
+def shipped_dash(request):
+    if request.user.is_authenticated and request.user.is_superuser:
+        orders = Order.objects.filter(shipped=True)
+        return render(request, 'payment/shipped_dash.html', {'orders': orders})
+    else:
+        messages.error(request, "Access Denied!!")
+        return redirect('home')
+
+
+def not_shipped_dash(request):
+    if request.user.is_authenticated and request.user.is_superuser:
+        orders = Order.objects.filter(shipped=False)
+        return render(request, 'payment/not_shipped_dash.html', {'orders': orders})
+    else:
+        messages.error(request, "Access Denied!!")
+        return redirect('home')
+
+
+def orders(request, pk):
+    # Get the orders
+    order = Order.objects.get(id=pk)
+    # get order items
+    items = OrderItem.objects.filter(order=pk)
+    if request.user.is_authenticated and request.user.is_superuser:
+        return render(request, 'payment/orders.html', {'order': order, 'items': items})
+    else:
+        messages.error(request, "Access Denied!!")
+        return redirect('home')
