@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from cart.cart import Cart
 from payment.forms import ShippingForm, PaymentForm
 from payment.models import ShippingAddress, Order, OrderItem
-
+from my_app.models import Product
 
 # Create your views here.
 def payment_success(request):
@@ -80,18 +80,44 @@ def process_order(request):
             create_order = Order(user=user, full_name=full_name, email=email, shipping_address=shipping_address, amount_paid=amount_paid)
             create_order.save()
 
+            # Add order items
+            # Get order id
+            order_id = create_order.pk
+            # get product info
+            for product in cart_products:
+                # get product id
+                product_id = product.id
+                # get product price
+                if product.is_new:
+                    price = product.price
+                else:
+                    price = product.price
+                # get quantity
+                for key, value in quantities().items():
+                    if int(key) == product.id:
+                        # create order item
+                        create_order_item = OrderItem(order_id=order_id, product_id=product_id , user=user ,quantity=value, price=price)
+                        create_order_item.save()
+            # Delete cart
+            for key in list(request.session.keys()):
+                if key == "session_key":
+                    # delete the key
+                    del request.session[key]
+
             messages.success(request, 'Order Placed')
             return redirect('home')
 
         else:
             # not logged in
             # create order
-            create_order = Order(full_name=full_name, email=email, shipping_address=shipping_address,
-                                 amount_paid=amount_paid)
-            create_order.save()
-
-            messages.success(request, 'Order Placed')
-            return redirect('home')
+            # create_order = Order(full_name=full_name, email=email, shipping_address=shipping_address,
+            #                      amount_paid=amount_paid)
+            # create_order.save()
+            #
+            # messages.success(request, 'Order Placed')
+            # return redirect('home')
+            messages.success(request, 'Please Login to place your order.')
+            return redirect('login')
 
     else:
         messages.error(request, 'Access Denied!!')
