@@ -48,18 +48,17 @@
                 <div class="card mt-5 mb-2">
                     <div class="card-header">Shipping Information</div>
                     <div class="card-body">
-                        <p>Name: {{ shipping_info.shipping_full_name }}</p>
-                        <p>Email: {{ shipping_info.shipping_email }}</p>
-                        <p>Address 1: {{ shipping_info.shipping_address1 }}</p>
-                        <p>Address 2: {{ shipping_info.shipping_address2 }}</p>
-                        <p>City: {{ shipping_info.shipping_city }}</p>
-                        <p>State: {{ shipping_info.shipping_state }}</p>
-                        <p>Zipcode: {{ shipping_info.shipping_zipcode }}</p>
-                        <p>Country: {{ shipping_info.shipping_country }}</p>
+                        Name: {{ shipping_info.shipping_full_name }}
+                        Email: {{ shipping_info.shipping_email }}
+                        Address 1: {{ shipping_info.shipping_address1 }}
+                        Address 2: {{ shipping_info.shipping_address2 }}
+                        City: {{ shipping_info.shipping_city }}
+                        State: {{ shipping_info.shipping_state }}
+                        Zipcode: {{ shipping_info.shipping_zipcode }}
+                        Country: {{ shipping_info.shipping_country }}
                         <a href="{% url 'checkout' %}" class="btn btn-outline-secondary mb-5">Update Shipping</a>
 
                     </div>
-
                 </div>
                 <div class="card mt-5 mb-2">
                     <div class="card-header">Billing Information</div>
