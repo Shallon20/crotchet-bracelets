@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.models import User
-from my_app.models import Category, Product, Customer, Profile
+from my_app.models import Category, Product, Customer, Profile, SliderImage
 
 # Register your models here.
 admin.site.site_header = 'E&S Crotchet & Jewellery Administration'
@@ -30,11 +30,17 @@ class ProfileAdmin(admin.ModelAdmin):
     search_fields = ['phone', 'city', 'country']
     list_filter = ['city', 'country']
     list_per_page = 25
+class SliderImageAdmin(admin.ModelAdmin):
+    list_display = ['title', 'caption']
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Profile, ProfileAdmin)
+admin.site.register(SliderImage, SliderImageAdmin)
+
+
+class Admin(admin.ModelAdmin):
 
 # mix profile info and user info
 class ProfileInline(admin.StackedInline):
