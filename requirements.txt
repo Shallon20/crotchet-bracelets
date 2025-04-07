@@ -107,9 +107,7 @@ protobuf==4.25.6
 psutil==5.9.0
 ptyprocess==0.7.0
 PyAudio==0.2.11
-pycairo==1.20.1
 pycparser==2.22
-pycups==2.0.1
 pycurl==7.44.1
 pydantic==2.5.3
 pydantic_core==2.14.6
@@ -123,7 +121,6 @@ pymacaroons==0.13.0
 PyNaCl==1.5.0
 pyOpenSSL==21.0.0
 pyparsing==2.4.7
-pyparted==3.11.7
 pyRFC3339==1.1
 python-apt==2.4.0+ubuntu4
 python-dateutil==2.9.0.post0
