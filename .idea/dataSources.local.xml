@@ -26,5 +26,11 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="@localhost" uuid="a22223b8-b55b-461f-a230-721c8c8730c8">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>admin2001</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

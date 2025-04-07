@@ -13,6 +13,8 @@ from pathlib import Path
 
 from django.contrib import messages
 from django.template.context_processors import media
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,8 +83,12 @@ WSGI_APPLICATION = 'crotchets_bracelets.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dini',
+        'USER': 'admin2001',
+        'PASSWORD': 'Admin@2001',
+        'HOST': 'localhost',  # Use the host provided by your hosting service
+        'PORT': '3306',  # Default MySQL port
     }
 }
 
