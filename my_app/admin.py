@@ -25,14 +25,18 @@ class CustomerAdmin(admin.ModelAdmin):
     list_filter = ['first_name', 'last_name', 'email']
     list_per_page = 25
 
+class SliderImageAdmin(admin.ModelAdmin):
+    list_display = ['title', 'caption']
+
+
+
 class ProfileAdmin(admin.ModelAdmin):
     list_display = ['phone', 'city', 'country']
     search_fields = ['phone', 'city', 'country']
     list_filter = ['city', 'country']
     list_per_page = 25
 
-class SliderImageAdmin(admin.ModelAdmin):
-    list_display = ['title', 'caption']
+
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
@@ -41,12 +45,12 @@ admin.site.register(Profile, ProfileAdmin)
 admin.site.register(SliderImage, SliderImageAdmin)
 
 
-class Admin(admin.ModelAdmin):
-    pass
+# class Admin(admin.ModelAdmin):
+
 # mix profile info and user info
 class ProfileInline(admin.StackedInline):
     model = Profile
-    extra = 0
+
 
 class UserAdmin(admin.ModelAdmin):
     model = User
@@ -59,8 +63,6 @@ admin.site.unregister(User)
 
 # Re-register the new way
 admin.site.register(User, UserAdmin)
-
-
 
 
 
