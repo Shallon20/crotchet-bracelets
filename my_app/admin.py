@@ -30,6 +30,7 @@ class ProfileAdmin(admin.ModelAdmin):
     search_fields = ['phone', 'city', 'country']
     list_filter = ['city', 'country']
     list_per_page = 25
+
 class SliderImageAdmin(admin.ModelAdmin):
     list_display = ['title', 'caption']
 
@@ -41,10 +42,11 @@ admin.site.register(SliderImage, SliderImageAdmin)
 
 
 class Admin(admin.ModelAdmin):
-
+    pass
 # mix profile info and user info
 class ProfileInline(admin.StackedInline):
     model = Profile
+    extra = 0
 
 class UserAdmin(admin.ModelAdmin):
     model = User
