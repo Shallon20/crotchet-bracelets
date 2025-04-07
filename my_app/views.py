@@ -10,14 +10,15 @@ from cart.cart import Cart
 from my_app.forms import ContactForm, LoginForm, SignupForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
 from payment.forms import ShippingForm
 from payment.models import ShippingAddress
-from my_app.models import Product, Category, Profile
+from my_app.models import Product, Category, Profile, SliderImage
 
 
 # Create your views here.
 def home(request):
     products = Product.objects.all()
     latest_products = Product.objects.filter(is_new=True)[:6]  # [:6] limits the query to fetch only the top 6 products
-    return render(request, 'home.html', {"products": products, "latest_products": latest_products})
+    slider_images = SliderImage.objects.all()
+    return render(request, 'home.html', {"products": products, "latest_products": latest_products, 'slider_images': slider_images})
 
 
 def product_list(request):

@@ -73,3 +73,11 @@ class Customer(models.Model):
     class Meta:
         db_table = 'customer'
 
+class SliderImage(models.Model):
+    title = models.CharField(max_length=100)
+    caption = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='slider/')
+    alt_text = models.CharField(max_length=100, default='')
+
+    def __str__(self):
+        return self.title
