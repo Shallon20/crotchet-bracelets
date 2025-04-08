@@ -8,7 +8,7 @@ from payment.models import ShippingAddress, Order, OrderItem
 from my_app.models import Product
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-
+import json
 
 # Create your views here.
 def payment_success(request):
@@ -159,6 +159,13 @@ def orders(request, pk):
 
 @csrf_exempt
 def mpesa_callback(request):
-    print("M-Pesa Callback Received")
-    print(request.body.decode())
-    return JsonResponse({"ResultCode": 0, "ResultDesc": "Accepted"})
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            print("M-Pesa Callback Received:", data)  # Logs to console
+            # Optionally store or process transaction
+            return JsonResponse({"ResultCode": 0, "ResultDesc": "Accepted"})
+        except Exception as e:
+            print("Callback error:", e)
+            return JsonResponse({"ResultCode": 1, "ResultDesc": "Error"})
+    return JsonResponse({"message": "Callback endpoint ready."})
