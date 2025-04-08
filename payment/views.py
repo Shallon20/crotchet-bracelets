@@ -6,6 +6,9 @@ from cart.cart import Cart
 from payment.forms import ShippingForm, PaymentForm
 from payment.models import ShippingAddress, Order, OrderItem
 from my_app.models import Product
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
 
 # Create your views here.
 def payment_success(request):
@@ -152,3 +155,10 @@ def orders(request, pk):
     else:
         messages.error(request, "Access Denied!!")
         return redirect('home')
+
+
+@csrf_exempt
+def mpesa_callback(request):
+    print("M-Pesa Callback Received")
+    print(request.body.decode())
+    return JsonResponse({"ResultCode": 0, "ResultDesc": "Accepted"})
