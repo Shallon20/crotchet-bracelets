@@ -31,7 +31,6 @@ cython
 distro==1.7.0
 Django==5.1.3
 django-crispy-forms==2.3
-django-daraja==1.3.0
 django-extensions==3.2.3
 django-widget-tweaks==1.5.0
 dnspython==2.6.1
